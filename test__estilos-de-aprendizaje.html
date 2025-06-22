@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Test Estilos de Aprendizaje</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <style>
+  .fade-in-up {
+    animation: fadeInUp 0.6s ease-in-out;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Test Estilos de Aprendizaje</a>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#autorModal" title="Autor del proyecto">
+                        <i class="bi bi-person-circle fs-5"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mb-5">
+        <div class="card">
+            <label for="student-name" class="form-label card-header">Nombre del participante</label>
+            <div class="card-body">
+                <div class="mb-3">
+                    <input type="text" id="student-name" class="form-control" placeholder="Ej. Juan Moreno" />
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion mt-3" id="accordionTests">
+        <!-- Test VAK -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingVAK">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseVAK">
+                Test 1: VAK
+            </button>
+            </h2>
+            <div id="collapseVAK" class="accordion-collapse collapse show" data-bs-parent="#accordionTests">
+            <div class="accordion-body">
+                <div class="container my-1">
+                    <p>
+                        El test <strong>VAK</strong> (Visual, Auditivo, Kinestésico) permite identificar el <strong>estilo de aprendizaje predominante</strong> de una persona. Es decir, ayuda a entender <strong>cómo aprende mejor</strong> cada individuo:
+                    </p>
+                    <ul class="list-group list-group-flush mb-2">
+                        <li class="list-group-item border-0 pb-0">👀 <strong>Visual:</strong> Aprende mejor viendo imágenes, esquemas o colores.</li>
+                        <li class="list-group-item border-0 pt-0 pb-0">🎧 <strong>Auditivo:</strong> Aprende mejor escuchando explicaciones o conversaciones.</li>
+                        <li class="list-group-item border-0 pt-0">👐 <strong>Kinestésico:</strong> Aprende mejor haciendo, moviéndose o manipulando objetos.</li>
+                    </ul>
+                    <p>
+                        Conocer el estilo de aprendizaje ayuda a personalizar estrategias educativas, mejorar la retención de conocimientos y potenciar el desarrollo personal o profesional.<br>
+                        Lea cada una de las preguntas, elija una sola opción de respuesta:
+                    </p>
+                </div>
+                <form id="form-vak"></form>
+                <button class="btn btn-success mt-3 w-100" id="btn-vak-result">🧠 Ver resultado</button>
+                <div id="result-vak" class="mt-2"></div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Test Organización -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOrg">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOrg">
+                Test 2: Organización
+            </button>
+            </h2>
+            <div id="collapseOrg" class="accordion-collapse collapse" data-bs-parent="#accordionTests">
+            <div class="accordion-body">
+                <p>
+                    Este test permite identificar la tendencia cognitiva a la hora de organizar, procesar y estructurar la información que recibe una persona.
+                </p>
+                <p class="mb-0"><strong>Objetivo:</strong></p>
+                <ul class="list-group list-group-flush mt-0 mb-2">
+                    <li class="list-group-item border-0 pb-0">📏 <strong>Secuencial:</strong> Estilo lógico y ordenado, enfocado en el paso a paso y el análisis detallado.</li>
+                    <li class="list-group-item border-0 pt-0">🧠 <strong>Holístico:</strong> Estilo global e intuitivo, centrado en captar el todo y luego los detalles.</li>
+                </ul>
+                <p> 
+                    Por favor señale sí o no según corresponda
+                </p>
+
+                <form id="form-org"></form>
+                <button class="btn btn-success mt-3 w-100" id="btn-org-result">🧠 Ver resultado</button>
+                <div id="result-org" class="mt-2"></div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Test CHAEA -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingCha">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCha">
+                Test 3: CHAEA
+            </button>
+            </h2>
+            <div id="collapseCha" class="accordion-collapse collapse" data-bs-parent="#accordionTests">
+            <div class="accordion-body">
+                <p class="mb-3">
+                    El test CHAEA evalúa tus preferencias en los estilos de aprendizaje definidos por Honey y Alonso, permitiéndote identificar cómo aprendes mejor.
+                </p>
+                <p><strong>🎯 Objetivo:</strong></p>
+                <ul class="list-group list-group-flush mb-2">
+                    <li class="list-group-item border-0 pb-0"><strong>🔥 Activo:</strong> Participas con entusiasmo, disfrutas los retos y nuevas experiencias.</li>
+                    <li class="list-group-item border-0 pt-0 pb-0"><strong>🧘‍♂️ Reflexivo:</strong> Analizas con cuidado antes de actuar, observas y consideras distintos ángulos.</li>
+                    <li class="list-group-item border-0 pt-0 pb-0"><strong>📚 Teórico:</strong> Estructuras, analizas con lógica y buscas fundamentos antes de aceptar ideas.</li>
+                    <li class="list-group-item border-0 pt-0"><strong>🛠️ Pragmático:</strong> Prefieres lo útil y práctico, aplicas ideas que funcionen en la realidad.</li>
+                </ul>
+                <form id="form-chaea"></form>
+                <button class="btn btn-success mt-3 w-100" id="btn-chaea-result">🧠 Ver resultado</button>
+                <div id="result-chaea" class="mt-2"></div>
+            </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- Export button -->
+        <div class="text-center mt-4">
+            <button class="btn btn-outline-primary" id="btn-export">📥 Exportar respuestas</button>
+        </div>
+    </div>
+
+    <!-- Modals -->
+   <div class="modal fade" id="modal-vak-result" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content shadow">
+            <div class="modal-header">
+                <h5 class="modal-title">Resultado Test VAK</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body" id="modal-vak-body">
+            </div>
+            </div>
+        </div>
+   </div>
+
+    <div class="modal fade" id="modal-org-result" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content shadow">
+            <div class="modal-header">
+                <h5 class="modal-title">Resultado Test Organización</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body" id="modal-org-body">
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modal-chaea-result" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content shadow">
+            <div class="modal-header">
+                <h5 class="modal-title">Resultado Test CHAEA</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body" id="modal-chaea-body">
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="autorModal" tabindex="-1" aria-labelledby="autorLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg fade-in-up">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="autorLabel">
+                    <i class="bi bi-award me-2"></i> Información del Proyecto
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body px-4">
+                    <div class="text-center mb-3">
+                        <h6 class="fw-bold mb-1">Juan Moreno</h6>
+                        <p class="mb-0">Ingeniero de Sistemas</p>
+                        <p class="mb-1">Esp. en Gestión del Conocimiento Organizacional</p>
+                    </div>
+
+                    <hr class="my-3">
+
+                    <p class="text-muted small mb-1">Un pequeño detalle para:</p>
+                    <p class="text-center fw-semibold mb-0">Adriana Araque Bermúdez</p>
+                    <p class="text-center mb-0">En reconocimiento a su guía y pasión por enseñar</p>
+                    <p class="text-center mb-3"><strong>22 de junio de 2025</strong></p>
+
+                    <hr class="my-3">
+
+                    <p class="text-muted small mb-1">Herramientas utilizadas:</p>
+                    <ul class="mb-3">
+                        <li>HTML5 + Bootstrap 5.3.2</li>
+                        <li>jQuery + JavaScript modular</li>
+                        <li>Exportación a TXT integrada</li>
+                    </ul>
+
+                    <hr class="my-3">
+
+                    <p class="text-muted small mb-1">Contacto:</p>
+                    <p class="mb-1">📧 <a href="mailto:jcmhmoreno@hotmail.com">jcmhmoreno@hotmail.com</a></p>
+                    <p class="mb-1">📱 +57 318 360 8370</p>
+                    <p class="mb-0">🔗 <a href="https://www.linkedin.com/in/jcmorenohu" target="_blank">LinkedIn /jcmorenohu</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+
+$(document).ready(function () {
+  tests.vak.render('#form-vak');
+  tests.organizacion.render('#form-org');
+  tests.chaea.render('#form-chaea');
+
+    $('#btn-vak-result').on('click', function (e) {
+        e.preventDefault();
+        if (tests.vak.evaluar) tests.vak.evaluar();
+    });
+
+    $('#btn-org-result').on('click', function (e) {
+        e.preventDefault();
+        const resultado = tests.organizacion.evaluar();
+        $('#result-org').html(resultado);
+    });
+
+    $('#btn-chaea-result').on('click', function (e) {
+        e.preventDefault();
+        if (tests.chaea.evaluar) tests.chaea.evaluar();
+    });
+
+    $('#btn-export').on('click', function (e) {
+        e.preventDefault();
+        exportarTXT();
+    });
+});
+
+
+const tests = {
+    vak: {
+        id: 'vak',
+        titulo: 'Test VAK',
+        descripcion: 'Identifica tu canal de representación preferido: Visual, Auditivo o Kinestésico.',
+        preguntas: [
+            {
+                "id": 1,
+                "texto": "¿Al recordar una época en que estuvo intensamente involucrado  con otra persona, qué es lo primero que lo atrajo del otro?",
+                "opciones": [
+                {
+                    "valor": "a",
+                    "canal": "visual",
+                    "texto": "Su manera de mirar."
+                },
+                {
+                    "valor": "b",
+                    "canal": "auditivo",
+                    "texto": "Su manera de decir las cosas, o lo que escuchaba."
+                },
+                {
+                    "valor": "c",
+                    "canal": "kinestesico",
+                    "texto": "La forma de tocarla o lo que sentía."
+                }
+                ]
+            },
+            {
+                "id": 2,
+                "texto": "Cuando trae a su mente unas vacaciones especialmente placenteras, cual es la experiencia inicial que recuerda?",
+                "opciones": [
+                {
+                    "valor": "a",
+                    "canal": "visual",
+                    "texto": "La manera en que se veía el sitio de vacaciones."
+                },
+                {
+                    "valor": "b",
+                    "canal": "auditivo",
+                    "texto": "Los diferentes sonidos  que se percibían."
+                },
+                {
+                    "valor": "c",
+                    "canal": "kinestesico",
+                    "texto": "Las sensaciones que experimentó estando allá."
+                }
+                ]
+            },
+            {
+                "id": 3,
+                "texto": "Si usted va en un vehículo, ¿cómo se orienta?",
+                "opciones": [
+                {
+                    "valor": "a",
+                    "canal": "visual",
+                    "texto": "Mirando señales en la vía o siguiendo un mapa del terreno."
+                },
+                {
+                    "valor": "b",
+                    "canal": "auditivo",
+                    "texto": "Escuchando sonidos que le sean familiares y le apunten hacia la dirección correcta."
+                },
+                {
+                    "valor": "c",
+                    "canal": "kinestesico",
+                    "texto": "Recibiendo una sensación o sentimiento que se encuentra en el camino adecuado."
+                }
+                ]
+            },
+            {
+                "id": 4,
+                "texto": "Al practicar su deporte favorito, particularmente usted disfruta:",
+                "opciones": [
+                {
+                    "valor": "a",
+                    "canal": "visual",
+                    "texto": "La vista del juego o cómo se ve jugando."
+                },
+                {
+                    "valor": "b",
+                    "canal": "auditivo",
+                    "texto": "Los sonidos del juego (al golpear la bola, el motor de los carros, los gritos de los espectadores etc.)"
+                },
+                {
+                    "valor": "c",
+                    "canal": "kinestesico",
+                    "texto": "Las sensaciones físicas o emociones que le despierta el juego."
+                }
+                ]
+            },
+            {
+                "id": 5,
+                "texto": "Cuando recibe un encargo en el trabajo, le es más fácil  entender y ejecutarlo si:",
+                "opciones": [
+                {
+                    "valor": "a",
+                    "canal": "visual",
+                    "texto": "Está por escrito o en diagrama."
+                },
+                {
+                    "valor": "b",
+                    "canal": "auditivo",
+                    "texto": "Me es explicado verbalmente."
+                },
+                {
+                    "valor": "c",
+                    "canal": "kinestesico",
+                    "texto": "Recibo una sensación de claridad, propósito y cumplimiento del trabajo"
+                }
+                ]
+            },
+            {
+                "id": 6,
+                "texto": "Cuando me agobian los problemas es útil para mí:",
+                "opciones": [
+                {
+                    "valor": "a",
+                    "canal": "visual",
+                    "texto": "Escribirlos, de manera que pueda verlos claramente."
+                },
+                {
+                    "valor": "b",
+                    "canal": "auditivo",
+                    "texto": "Hablar o escuchar a otros sobre mis problemas me facilita el asimilarlos."
+                },
+                {
+                    "valor": "c",
+                    "canal": "kinestesico",
+                    "texto": "Seleccionarlos internamente hasta que sienta que los entiendo."
+                }
+                ]
+            },
+            {
+                "id": 7,
+                "texto": "Encuentro más fácil el estar con mis amigos cuando:",
+                "opciones": [
+                {
+                    "valor": "a",
+                    "canal": "visual",
+                    "texto": "Se comunican a través de exposiciones animadas y que se vea adonde van."
+                },
+                {
+                    "valor": "b",
+                    "canal": "auditivo",
+                    "texto": "Interactúan conmigo con una forma de hablar clara y variada."
+                },
+                {
+                    "valor": "c",
+                    "canal": "kinestesico",
+                    "texto": "Percibo la sensación que ellos saben a lo que me refiero."
+                }
+                ]
+            },
+            {
+                "id": 8,
+                "texto": "Cuando tomo decisiones me ayuda:",
+                "opciones": [
+                {
+                    "valor": "a",
+                    "canal": "visual",
+                    "texto": "Pintar o dibujar todas las posibilidades en la pantalla de mi mente."
+                },
+                {
+                    "valor": "b",
+                    "canal": "auditivo",
+                    "texto": "Escuchar a todas las partes en un diálogo conmigo mismo."
+                },
+                {
+                    "valor": "c",
+                    "canal": "kinestesico",
+                    "texto": "Experimentar qué sensaciones tendría una vez cada alternativa se haya dado."
+                }
+                ]
+            },
+            {
+                "id": 9,
+                "texto": "Cual agrupación de las siguientes tiende a preferir:",
+                "opciones": [
+                {
+                    "valor": "a",
+                    "canal": "visual",
+                    "texto": "Fotografía, pintura, lectura, dibujo, cine."
+                },
+                {
+                    "valor": "b",
+                    "canal": "auditivo",
+                    "texto": "Música, instrumentos musicales, sonidos de la naturaleza, concierto, repique de campanas."
+                },
+                {
+                    "valor": "c",
+                    "canal": "kinestesico",
+                    "texto": "Juegos de pelota, carpintería, masajes, introspección, tocar ."
+                }
+                ]
+            },
+            {
+                "id": 10,
+                "texto": "En las relaciones íntimas de pareja me gusta:",
+                "opciones": [
+                {
+                    "valor": "a",
+                    "canal": "visual",
+                    "texto": "Ver lo que está sucediendo."
+                },
+                {
+                    "valor": "b",
+                    "canal": "auditivo",
+                    "texto": "Escuchar o decirle cosas a mi pareja."
+                },
+                {
+                    "valor": "c",
+                    "canal": "kinestesico",
+                    "texto": "Experimentar todas y cada una de las sensaciones"
+                }
+                ]
+            },
+            {
+                "id": 11,
+                "texto": "Cuando voy a comprar ropa, tras el primer vistazo, de inmediato:",
+                "opciones": [
+                {
+                    "valor": "a",
+                    "canal": "visual",
+                    "texto": "Vuelvo a mirarlo bien o me imagino con la ropa puesta."
+                },
+                {
+                    "valor": "b",
+                    "canal": "auditivo",
+                    "texto": "Escucho atentamente a quien vende o me digo a mí mismo los pros y contras de comprar esto."
+                },
+                {
+                    "valor": "c",
+                    "canal": "kinestesico",
+                    "texto": "Tengo una sensación sobre la ropa o la toco para notar si es algo que disfrutaría vistiendo."
+                }
+                ]
+            },
+            {
+                "id": 12,
+                "texto": "Las veces que pienso en un amor antiguo lo primero que hago es:",
+                "opciones": [
+                {
+                    "valor": "a",
+                    "canal": "visual",
+                    "texto": "Ver a la persona en la pantalla de mi mente"
+                },
+                {
+                    "valor": "b",
+                    "canal": "auditivo",
+                    "texto": "Escucho mi voz o la suya en mi mente"
+                },
+                {
+                    "valor": "c",
+                    "canal": "kinestesico",
+                    "texto": "Obtengo una sensación determinada respecto a esa persona"
+                }
+                ]
+            },
+            {
+                "id": 13,
+                "texto": "En un gimnasio la experiencia de satisfacción viene primero por:",
+                "opciones": [
+                {
+                    "valor": "a",
+                    "canal": "visual",
+                    "texto": "Verme mejor a mí mismo ante el espejo."
+                },
+                {
+                    "valor": "b",
+                    "canal": "auditivo",
+                    "texto": "Escucharme a mí mismo o a otros decir lo bien que me veo."
+                },
+                {
+                    "valor": "c",
+                    "canal": "kinestesico",
+                    "texto": "Sentir mi cuerpo cómo se tonifica y cómo me voy sintiendo en forma."
+                }
+                ]
+            },
+            {
+                "id": 14,
+                "texto": "En las ocasiones que aplico las matemáticas verifico la respuesta:",
+                "opciones": [
+                {
+                    "valor": "a",
+                    "canal": "visual",
+                    "texto": "Viendo los números y observando si se ven bien."
+                },
+                {
+                    "valor": "b",
+                    "canal": "auditivo",
+                    "texto": "Contando los números en mi cabeza."
+                },
+                {
+                    "valor": "c",
+                    "canal": "kinestesico",
+                    "texto": "Uso mis dedos para obtener la sensación que es correcto."
+                }
+                ]
+            },
+            {
+                "id": 15,
+                "texto": "Cuando deletreo me cercioro que está bien:",
+                "opciones": [
+                {
+                    "valor": "a",
+                    "canal": "visual",
+                    "texto": "Viendo la palabra en mi mente para ver si se ve cómo debería."
+                },
+                {
+                    "valor": "b",
+                    "canal": "auditivo",
+                    "texto": "Pronunciando la palabra en voz alta o repitiéndola en mi mente."
+                },
+                {
+                    "valor": "c",
+                    "canal": "kinestesico",
+                    "texto": "Obteniendo una sensación determinada al deletrearla de cierta manera."
+                }
+                ]
+            },
+            {
+                "id": 16,
+                "texto": "La materia que más me gustó en el colegio fue el resultado principalmente de:",
+                "opciones": [
+                {
+                    "valor": "a",
+                    "canal": "visual",
+                    "texto": "La manera como fue mostrada en el tablero o en los libros."
+                },
+                {
+                    "valor": "b",
+                    "canal": "auditivo",
+                    "texto": "La forma como me sonó cuando me fue enseñada."
+                },
+                {
+                    "valor": "c",
+                    "canal": "kinestesico",
+                    "texto": "Mi sentido de interés cuando aprendí más sobre ello."
+                }
+                ]
+            },
+            {
+                "id": 17,
+                "texto": "Cuando me he enamorado de alguien, lo que prefiero experimentar es:",
+                "opciones": [
+                {
+                    "valor": "a",
+                    "canal": "visual",
+                    "texto": "La forma especial de mirarnos a los ojos como “leyendo” a través de ellos."
+                },
+                {
+                    "valor": "b",
+                    "canal": "auditivo",
+                    "texto": "El sonido de mi voz o la de mi pareja cuando dice “te quiero”."
+                },
+                {
+                    "valor": "c",
+                    "canal": "kinestesico",
+                    "texto": "La sensación de entusiasmo o calidez hacia mi pareja."
+                }
+                ]
+            },
+            {
+                "id": 18,
+                "texto": "Cuando he disgustado con alguien me desagrada:",
+                "opciones": [
+                {
+                    "valor": "a",
+                    "canal": "visual",
+                    "texto": "Cuando veo que está presente."
+                },
+                {
+                    "valor": "b",
+                    "canal": "auditivo",
+                    "texto": "Cuando comienza a hablarme."
+                },
+                {
+                    "valor": "c",
+                    "canal": "kinestesico",
+                    "texto": "Cuando siento que está en las cercanías."
+                }
+                ]
+            },
+            {
+                "id": 19,
+                "texto": "En la playa lo primero por lo que me alegro es:",
+                "opciones": [
+                {
+                    "valor": "a",
+                    "canal": "visual",
+                    "texto": "La vista de la arena, el sol radiante y el mar azul profundo."
+                },
+                {
+                    "valor": "b",
+                    "canal": "auditivo",
+                    "texto": "El sonido de las olas, el  viento sonriente y los susurros distantes."
+                },
+                {
+                    "valor": "c",
+                    "canal": "kinestesico",
+                    "texto": "La sensación de la arena, el aire salado en mis labios y el gozo de la serenidad."
+                }
+                ]
+            },
+            {
+                "id": 20,
+                "texto": "Al tener una conversación en una reunión, mi marco de la experiencia global cambiaría si:",
+                "opciones": [
+                {
+                    "valor": "a",
+                    "canal": "visual",
+                    "texto": "Las luces se intensifican o se oscurecen."
+                },
+                {
+                    "valor": "b",
+                    "canal": "auditivo",
+                    "texto": "La música cambia de ritmo."
+                },
+                {
+                    "valor": "c",
+                    "canal": "kinestesico",
+                    "texto": "La temperatura del salón se modifica."
+                }
+                ]
+            },
+            {
+                "id": 21,
+                "texto": "Noto que mi carrera va mejorando si:",
+                "opciones": [
+                {
+                    "valor": "a",
+                    "canal": "visual",
+                    "texto": "Me veo a mí mismo ubicándome en el escritorio principal."
+                },
+                {
+                    "valor": "b",
+                    "canal": "auditivo",
+                    "texto": "Escucho al gerente superior diciendo “Usted va a realizar muchos logros”."
+                },
+                {
+                    "valor": "c",
+                    "canal": "kinestesico",
+                    "texto": "Siento satisfacción al obtener una promoción."
+                }
+                ]
+            },
+            {
+                "id": 22,
+                "texto": "Al ir a dormir en la noche es importante que:",
+                "opciones": [
+                {
+                    "valor": "a",
+                    "canal": "visual",
+                    "texto": "La habitación esté casi oscura o agradablemente sombreada."
+                },
+                {
+                    "valor": "b",
+                    "canal": "auditivo",
+                    "texto": "La habitación esté en silencio o con una agradable quietud de fondo."
+                },
+                {
+                    "valor": "c",
+                    "canal": "kinestesico",
+                    "texto": "La cama se sienta muy cómoda y la temperatura sea agradable."
+                }
+                ]
+            },
+            {
+                "id": 23,
+                "texto": "En las mañanas, disfruto especialmente el despertar cuando:",
+                "opciones": [
+                {
+                    "valor": "a",
+                    "canal": "visual",
+                    "texto": "Los rayos de luz entran o el cielo está encapotado."
+                },
+                {
+                    "valor": "b",
+                    "canal": "auditivo",
+                    "texto": "El sonido de un viento intenso o la lluvia golpean las ventanas."
+                },
+                {
+                    "valor": "c",
+                    "canal": "kinestesico",
+                    "texto": "Me siento cubierto con una cobija o sábanas confortables."
+                }
+                ]
+            },
+            {
+                "id": 24,
+                "texto": "Cuando experimento ansiedad, lo primero que me ocurre es:",
+                "opciones": [
+                {
+                    "valor": "a",
+                    "canal": "visual",
+                    "texto": "El mundo toma una apariencia de alguna forma distinta."
+                },
+                {
+                    "valor": "b",
+                    "canal": "auditivo",
+                    "texto": "Los sonidos me empiezan a irritar."
+                },
+                {
+                    "valor": "c",
+                    "canal": "kinestesico",
+                    "texto": "Mi sentido de desenvoltura empieza a alterarse."
+                }
+                ]
+            },
+            {
+                "id": 25,
+                "texto": "Cuando estoy muy feliz, mi mundo:",
+                "opciones": [
+                {
+                    "valor": "a",
+                    "canal": "visual",
+                    "texto": "Adquiere un brillo maravilloso y definitivo."
+                },
+                {
+                    "valor": "b",
+                    "canal": "auditivo",
+                    "texto": "Resuena en total armonía."
+                },
+                {
+                    "valor": "c",
+                    "canal": "kinestesico",
+                    "texto": "Encaja perfectamente con los espacios de mi vida."
+                }
+                ]
+            },
+            {
+                "id": 26,
+                "texto": "Me llevo muy bien con personas que:",
+                "opciones": [
+                {
+                    "valor": "a",
+                    "canal": "visual",
+                    "texto": "Se relacionan con su forma de ver la vida."
+                },
+                {
+                    "valor": "b",
+                    "canal": "auditivo",
+                    "texto": "Se relacionan mediante su sintonía con el mundo."
+                },
+                {
+                    "valor": "c",
+                    "canal": "kinestesico",
+                    "texto": "Se relacionan por lo que les permita sentir la vida."
+                }
+                ]
+            },
+            {
+                "id": 27,
+                "texto": "Cuando estoy completamente motivado, lo primero que ocurre es:",
+                "opciones": [
+                {
+                    "valor": "a",
+                    "canal": "visual",
+                    "texto": "Veo las cosas desde una nueva perspectiva plena de recursos."
+                },
+                {
+                    "valor": "b",
+                    "canal": "auditivo",
+                    "texto": "Me digo a mí mismo cómo este estado me llevará a crear nuevas posibilidades."
+                },
+                {
+                    "valor": "c",
+                    "canal": "kinestesico",
+                    "texto": "Actualmente me puedo sentir cómo fluye mi inteligencia."
+                }
+                ]
+            },
+            {
+                "id": 28,
+                "texto": "Cuando alguien me dice “te quiero”, mi primera experiencia es:",
+                "opciones": [
+                {
+                    "valor": "a",
+                    "canal": "visual",
+                    "texto": "Una imagen de la persona que me ama o de los dos."
+                },
+                {
+                    "valor": "b",
+                    "canal": "auditivo",
+                    "texto": "Un diálogo con mi alma diciendo “esto es maravilloso”."
+                },
+                {
+                    "valor": "c",
+                    "canal": "kinestesico",
+                    "texto": "Una placentera sensación de contento"
+                }
+                ]
+            },
+            {
+                "id": 29,
+                "texto": "La muerte para mí probablemente es:",
+                "opciones": [
+                {
+                    "valor": "a",
+                    "canal": "visual",
+                    "texto": "No ver más o ver todo desde un ángulo completamente nuevo."
+                },
+                {
+                    "valor": "b",
+                    "canal": "auditivo",
+                    "texto": "No escuchar más u oír todo de una nueva manera."
+                },
+                {
+                    "valor": "c",
+                    "canal": "kinestesico",
+                    "texto": "No sentir más o sentir de un modo absolutamente nuevo."
+                }
+                ]
+            },
+            {
+                "id": 30,
+                "texto": "Tener una buena relación con alguien significa:",
+                "opciones": [
+                {
+                    "valor": "a",
+                    "canal": "visual",
+                    "texto": "Ver que el o ella tienen el mismo modo de ver las cosas como yo."
+                },
+                {
+                    "valor": "b",
+                    "canal": "auditivo",
+                    "texto": "Escuchar a la persona comunicando las cosas exactamente del mismo modo que yo lo haría."
+                },
+                {
+                    "valor": "c",
+                    "canal": "kinestesico",
+                    "texto": "Notar que esa persona siente similar las cosas como me ocurre a mí."
+                }
+                ]
+            }      
+        ],
+        analisis: {
+            visual: [
+                { min: 0, max: 5, mensaje: "Tu estilo visual es muy bajo." },
+                { min: 6, max: 10, mensaje: "Tu estilo visual es bajo." },
+                { min: 11, max: 15, mensaje: "Tienes una preferencia visual moderada." },
+                { min: 16, max: 20, mensaje: "Tienes una preferencia visual alta." },
+                { min: 21, max: 30, mensaje: "Tu estilo de aprendizaje dominante es visual." }
+            ],
+            auditivo: [
+                { min: 0, max: 5, mensaje: "Tu estilo auditivo es muy bajo." },
+                { min: 6, max: 10, mensaje: "Tu estilo auditivo es bajo." },
+                { min: 11, max: 15, mensaje: "Tienes una preferencia auditiva moderada." },
+                { min: 16, max: 20, mensaje: "Tienes una preferencia auditiva alta." },
+                { min: 21, max: 30, mensaje: "Tu estilo de aprendizaje dominante es auditivo." }
+            ],
+            kinestesico: [
+                { min: 0, max: 5, mensaje: "Tu estilo kinestésico es muy bajo." },
+                { min: 6, max: 10, mensaje: "Tu estilo kinestésico es bajo." },
+                { min: 11, max: 15, mensaje: "Tienes una preferencia kinestésica moderada." },
+                { min: 16, max: 20, mensaje: "Tienes una preferencia kinestésica alta." },
+                { min: 21, max: 30, mensaje: "Tu estilo de aprendizaje dominante es kinestésico." }
+            ]
+        },
+        render: function(containerId) {
+            const container = $(containerId);
+            container.empty();
+            this.preguntas.forEach(p => {
+                const block = $('<div class="mb-3"></div>');
+                block.append(`<label class="form-label">${p.id}. ${p.texto}</label>`);
+                p.opciones.forEach((op, idx) => {
+                const input = `
+                    <div class="form-check">
+                    <input class="form-check-input" type="radio" name="q${p.id}" id="q${p.id}_${idx}" value="${op.canal}" required>
+                    <label class="form-check-label" for="q${p.id}_${idx}">${op.texto}</label>
+                    </div>`;
+                block.append(input);
+                });
+                container.append(block);
+            });
+        },
+        evaluar: function() {
+            const total = { visual: 0, auditivo: 0, kinestesico: 0 };
+            let incompletas = [];
+
+            this.preguntas.forEach(p => {
+                const selected = $(`input[name=q${p.id}]:checked`).val();
+                if (!selected) {
+                incompletas.push(p.id);
+                } else {
+                total[selected]++;
+                }
+            });
+
+            if (incompletas.length > 0) {
+                $('#modal-vak-body').html(`<div class="alert alert-warning">Debes responder todas las preguntas. Preguntas faltantes: ${incompletas.join(', ')}</div>`);
+                const modal = new bootstrap.Modal(document.getElementById('modal-vak-result'));
+                modal.show();
+                return;
+            }
+
+            const max = Object.keys(total).reduce((a, b) => total[a] > total[b] ? a : b);
+            let resultado = `<div class="alert alert-info">Tu estilo de aprendizaje predominante es: <strong>${max.toUpperCase()}</strong></div>`;
+            resultado += `<ul class="list-group mb-2">`;
+            for (let canal in total) {
+                resultado += `<li class="list-group-item d-flex justify-content-between">${canal.toUpperCase()} <span class="badge bg-primary">${total[canal]}</span></li>`;
+            }
+            resultado += `</ul>`;
+            const interpretacion = this.analisis[max].find(r => total[max] >= r.min && total[max] <= r.max);
+            if (interpretacion) {
+                resultado += `<p class="text-muted">${interpretacion.mensaje}</p>`;
+            }
+
+            $('#modal-vak-body').html(resultado);
+            const modal = new bootstrap.Modal(document.getElementById('modal-vak-result'));
+            modal.show();
+        }
+    },
+    organizacion: {
+        id: 'org',
+        titulo: 'Organización de la Información',
+        descripcion: 'Evalúa si organizas la información de manera secuencial o holística.',
+        preguntas: [
+            { id: 1, texto: "Analizo la información paso a paso", grupo: "secuencial" },
+            { id: 2, texto: "Se me facilita la expresión oral", grupo: "secuencial" },
+            { id: 3, texto: "Prefiero las cosas de manera metódica y ordenada", grupo: "secuencial" },
+            { id: 4, texto: "Necesito distinguir y separar las partes para emitir un juicio", grupo: "secuencial" },
+            { id: 5, texto: "Todo me gusta paso a paso, no todo al tiempo", grupo: "secuencial" },
+            { id: 6, texto: "Soy específico al hablar, agrupo por temas", grupo: "secuencial" },
+            { id: 7, texto: "Leo, escribo y pienso en palabras y en números", grupo: "secuencial" },
+            { id: 8, texto: "Soy bueno para el razonamiento y el cálculo", grupo: "secuencial" },
+            { id: 9, texto: "Pienso en causa-efecto y hago las cosas con calma", grupo: "secuencial" },
+            { id: 10, texto: "Frente a instrucciones me pregunto: qué, cómo, cuándo, dónde, por qué", grupo: "secuencial" },
+            { id: 11, texto: "Me molesta tener límites de tiempo, prefiero libertad", grupo: "secuencial" },
+            { id: 12, texto: "Pienso e imagino en colores", grupo: "holistico" },
+            { id: 13, texto: "Me encanta soñar e imaginar", grupo: "holistico" },
+            { id: 14, texto: "No soy muy organizado, hago varios procesos mentales simultáneamente", grupo: "holistico" },
+            { id: 15, texto: "Tengo buena imaginación, visualizo en 3D", grupo: "holistico" },
+            { id: 16, texto: "Mi pensamiento es holístico, entiendo mapas y volúmenes fácilmente", grupo: "holistico" },
+            { id: 17, texto: "Agrupo en conjuntos para entender el todo", grupo: "holistico" },
+            { id: 18, texto: "Soy intuitivo y abierto a opiniones", grupo: "holistico" },
+            { id: 19, texto: "Uso metáforas, disfruto arte y soy creativo", grupo: "holistico" },
+            { id: 20, texto: "Puedo integrar rápidamente datos y asociaciones", grupo: "holistico" },
+            { id: 21, texto: "Puedo pensar en varias cosas simultáneamente", grupo: "holistico" },
+            { id: 22, texto: "Disfruto del pensamiento libre y asociativo", grupo: "holistico" }
+        ],
+        analisis: {
+            secuencial: [
+                { min: 0, max: 2, mensaje: "Bajo uso del enfoque secuencial." },
+                { min: 3, max: 5, mensaje: "Tendencia secuencial moderada." },
+                { min: 6, max: 8, mensaje: "Fuerte tendencia secuencial." },
+                { min: 9, max: 11, mensaje: "Predominio del pensamiento secuencial." }
+            ],
+            holistico: [
+                { min: 0, max: 2, mensaje: "Bajo pensamiento holístico." },
+                { min: 3, max: 5, mensaje: "Tendencia holística moderada." },
+                { min: 6, max: 8, mensaje: "Fuerte tendencia holística." },
+                { min: 9, max: 11, mensaje: "Predominio del pensamiento holístico." }
+            ]
+        },
+        render: function(containerId) {        
+            const container = $(containerId);
+            container.empty();
+            const table = $('<table class="table table-bordered table-striped table-hover align-middle"></table>');
+            const thead = $('<thead><tr><th>Pregunta</th><th class="text-center">Sí</th><th class="text-center">No</th></tr></thead>');
+            const tbody = $('<tbody></tbody>');
+            this.preguntas.forEach(p => {
+                const row = $('<tr></tr>');
+                row.append(`<td>${p.id}. ${p.texto}</td>`);
+                ['si', 'no'].forEach(valor => {
+                    const input = `
+                        <div class="form-check d-flex justify-content-center">
+                        <input class="form-check-input" type="radio" name="q-org-${p.id}" id="q-org-${p.id}_${valor}" value="${valor}" required>
+                        </div>`;
+                    row.append(`<td>${input}</td>`);
+                });
+                tbody.append(row);
+            });
+            table.append(thead);
+            table.append(tbody);
+            container.append(table);
+        },
+        evaluar: function () {
+        const total = { secuencial: 0, holistico: 0 };
+        let incompletas = [];
+
+        this.preguntas.forEach(p => {
+            const val = $(`input[name=q-org-${p.id}]:checked`).val();
+            const tipo = p.grupo;
+
+            if (!val) {
+                incompletas.push(p.id);
+            } else if (val === 'si' && total.hasOwnProperty(tipo)) {
+                total[tipo]++;
+            }
+        });
+
+
+        // Mostrar advertencia si faltan respuestas
+        if (incompletas.length > 0) {
+            $('#modal-org-body').html(`
+            <div class="alert alert-warning">
+                Debes responder todas las preguntas.<br>
+                Preguntas faltantes: ${incompletas.join(', ')}
+            </div>`);
+            if (!window.modalOrg) {
+                window.modalOrg = new bootstrap.Modal(document.getElementById('modal-org-result'));
+            }
+            window.modalOrg.show();
+            return;
+        }
+
+        // Generar resultado
+        let resultado = `<div class="alert alert-info">Resultados del test de organización:</div>`;
+        resultado += `<ul class="list-group mb-2">`;
+        for (let tipo in total) {
+            resultado += `<li class="list-group-item d-flex justify-content-between">${tipo.toUpperCase()} <span class="badge bg-primary">${total[tipo]}</span></li>`;
+        }
+        resultado += `</ul>`;
+
+        // Interpretación según baremos
+        for (let tipo in total) {
+            const reglas = this.analisis?.[tipo];
+            if (reglas) {
+                const regla = reglas.find(r => total[tipo] >= r.min && total[tipo] <= r.max);
+                if (regla) {
+                    resultado += `<p><strong>${tipo.toUpperCase()}</strong>: <span class="text-muted">${regla.mensaje}</span></p>`;
+                }
+            }
+        }
+
+        $('#modal-org-body').html(resultado);
+        if (!window.modalOrg) {
+            window.modalOrg = new bootstrap.Modal(document.getElementById('modal-org-result'));
+        }
+        window.modalOrg.show();
+    }
+    },
+    chaea: {
+        id: 'chaea',
+        titulo: 'Test CHAEA',
+        descripcion: 'Evalúa tu estilo de aprendizaje: activo, reflexivo, teórico y pragmático.',
+        preguntas: [
+            { id: 1, texto: "Tengo fama de decir lo que pienso claramente y sin rodeos ", estilo: "pragmatico"},
+            { id: 2, texto: "Estoy seguro/a de lo que es bueno y lo que es malo, lo que está bien y lo que está mal", estilo: "teorico"},
+            { id: 3, texto: "Muchas veces actúo sin mirar las consecuencias", estilo: "activo"},
+            { id: 4, texto: "Normalmente trato de resolver los problemas metódicamente y paso a paso", estilo: "teorico"},
+            { id: 5, texto: "Creo que los formalismos coartan y limitan la actuación libre de las personas ", estilo: "activo"},
+            { id: 6, texto: "Me interesa saber cuáles son los sistemas de valores de los demás y con qué criterios actúan ", estilo: "teorico"},
+            { id: 7, texto: "Pienso que el actuar intuitivamente puede ser siempre tan válido como actuar reflexivamente", estilo: "activo"},
+            { id: 8, texto: "Creo que lo más importante es que las cosas funcionen ", estilo: "pragmatico"},
+            { id: 9, texto: "Procuro estar al tanto de lo que ocurre aquí y ahora ", estilo: "activo"},
+            { id: 10, texto: "Disfruto cuando tengo tiempo para preparar mi trabajo y realizarlo a conciencia", estilo: "reflexivo"},
+            { id: 11, texto: "Estoy a gusto siguiendo un orden, en las comidas, en el estudio, haciendo ejercicio regularmente", estilo: "teorico"},
+            { id: 12, texto: "Cuando escucho una nueva idea enseguida comienzo a pensar cómo ponerla en práctica", estilo: "pragmatico"},
+            { id: 13, texto: "Prefiero las ideas originales y novedosas aunque no sean prácticas", estilo: "activo"},
+            { id: 14, texto: "Admito y me ajusto a las normas sólo si me sirven para lograr mis objetivos", estilo: "pragmatico"},
+            { id: 15, texto: "Normalmente encajo bien con personas reflexivas, y me cuesta sintonizar con personas demasiado espontáneas, imprevisibles", estilo: "teorico"},
+            { id: 16, texto: "Escucho con más frecuencia que hablo", estilo: "reflexivo"},
+            { id: 17, texto: "Prefiero las cosas estructuradas a las desordenadas", estilo: "teorico"},
+            { id: 18, texto: "Cuando poseo cualquier información, trato de interpretarla bien antes de manifestar alguna conclusión", estilo: "reflexivo"},
+            { id: 19, texto: "Antes de hacer algo estudio con cuidado sus ventajas e inconvenientes", estilo: "reflexivo"},
+            { id: 20, texto: "Me crezco con el reto de hacer algo nuevo y diferente", estilo: "activo"},
+            { id: 21, texto: "Casi siempre procuro ser coherente con mis criterios y sistemas de valores Tengo principios y los sigo", estilo: "teorico"},
+            { id: 22, texto: "Cuando hay una discusión no me gusta ir con rodeos", estilo: "pragmatico"},
+            { id: 23, texto: "Me disgusta implicarme afectivamente en mi ambiente de trabajo Prefiero mantener relaciones distantes", estilo: "teorico"},
+            { id: 24, texto: "Me gustan más las personas realistas y concretas que las teóricas", estilo: "pragmatico"},
+            { id: 25, texto: "Me cuesta ser creativo/a, romper estructuras", estilo: "teorico"},
+            { id: 26, texto: "Me siento a gusto con personas espontáneas y divertidas", estilo: "activo"},
+            { id: 27, texto: "La mayoría de las veces expreso abiertamente cómo me siento", estilo: "activo"},
+            { id: 28, texto: "Me gusta analizar y dar vueltas a las cosas", estilo: "reflexivo"},
+            { id: 29, texto: "Me molesta que la gente no se tome en serio las cosas", estilo: "teorico"},
+            { id: 30, texto: "Me atrae experimentar y practicar las últimas técnicas y novedades", estilo: "pragmatico"},
+            { id: 31, texto: "Soy cauteloso/a a la hora de sacar conclusiones", estilo: "reflexivo"},
+            { id: 32, texto: "Prefiero contar con el mayor número de fuentes de información Cuantos más datos reúna para reflexionar, mejor", estilo: "reflexivo"},
+            { id: 33, texto: "Tiendo a ser perfeccionista", estilo: "teorico"},
+            { id: 34, texto: "Prefiero oír las opiniones de los demás antes de exponer la mía", estilo: "reflexivo"},
+            { id: 35, texto: "Me gusta afrontar la vida espontáneamente y no tener que planificar todo previamente", estilo: "activo"},
+            { id: 36, texto: "En las discusiones me gusta observar cómo actúan los demás participantes", estilo: "reflexivo"},
+            { id: 37, texto: "Me siento incómodo/a con las personas calladas y demasiado analíticas", estilo: "activo"},
+            { id: 38, texto: "Juzgo con frecuencia las ideas de los demás por su valor práctico", estilo: "pragmatico"},
+            { id: 39, texto: "Me agobio si me obligan a acelerar mucho el trabajo para cumplir un plazo", estilo: "reflexivo"},
+            { id: 40, texto: "En las reuniones apoyo las ideas prácticas y realistas", estilo: "pragmatico"},
+            { id: 41, texto: "Es mejor gozar del momento presente que deleitarse pensando en el pasado o en el futuro", estilo: "activo"},
+            { id: 42, texto: "Me molestan las personas que siempre desean apresurar las cosas", estilo: "reflexivo"},
+            { id: 43, texto: "Aporto ideas nuevas y espontáneas en los grupos de discusión", estilo: "activo"},
+            { id: 44, texto: "Pienso que son más consistentes las decisiones fundamentadas en un minucioso análisis que las basadas en la intuición", estilo: "reflexivo"},
+            { id: 45, texto: "Detecto frecuentemente la inconsistencia y puntos débiles en las argumentaciones de los demás", estilo: "teorico"},
+            { id: 46, texto: "Creo que es preciso saltarse las normas muchas más veces que cumplirlas", estilo: "activo"},
+            { id: 47, texto: "A menudo caigo en la cuenta de otras formas mejores y más prácticas de hacer las cosas", estilo: "pragmatico"},
+            { id: 48, texto: "En conjunto hablo más que escucho", estilo: "activo"},
+            { id: 49, texto: "Prefiero distanciarme de los hechos y observarlos desde otras perspectivas", estilo: "reflexivo"},
+            { id: 50, texto: "Estoy convencido/a que debe imponerse la lógica y el razonamiento", estilo: "teorico"},
+            { id: 51, texto: "Me gusta buscar nuevas experiencias", estilo: "activo"},
+            { id: 52, texto: "Me gusta experimentar y aplicar las cosas", estilo: "pragmatico"},
+            { id: 53, texto: "Pienso que debemos llegar pronto al grano, al meollo de los temas", estilo: "pragmatico"},
+            { id: 54, texto: "Siempre trato de conseguir conclusiones e ideas claras", estilo: "teorico"},
+            { id: 55, texto: "Prefiero discutir cuestiones concretas y no perder el tiempo con charlas vacías", estilo: "reflexivo"},
+            { id: 56, texto: "Me impaciento cuando me dan explicaciones irrelevantes e incoherentes", estilo: "pragmatico"},
+            { id: 57, texto: "Compruebo antes si las cosas funcionan realmente", estilo: "pragmatico"},
+            { id: 58, texto: "Hago varios borradores antes de la redacción definitiva de un trabajo", estilo: "reflexivo"},
+            { id: 59, texto: "Soy consciente de que en las discusiones ayudo a mantener a los demás centrados en el tema, evitando divagaciones", estilo: "pragmatico"},
+            { id: 60, texto: "Observo que, con frecuencia, soy uno/a de los/as más objetivos/as y desapasionados/as en las discusiones", estilo: "teorico"},
+            { id: 61, texto: "Cuando algo va mal, le quito importancia y trato de hacerlo mejor", estilo: "activo"},
+            { id: 62, texto: "Rechazo ideas originales y espontáneas si no las veo prácticas", estilo: "pragmatico"},
+            { id: 63, texto: "Me gusta sopesar diversas alternativas antes de tomar una decisión", estilo: "reflexivo"},
+            { id: 64, texto: "Con frecuencia miro hacia adelante para prever el futuro", estilo: "teorico"},
+            { id: 65, texto: "En los debates y discusiones prefiero desempeñar un papel secundario antes que ser el/la líder o el/la que más participa", estilo: "reflexivo"},
+            { id: 66, texto: "Me molestan las personas que no actúan con lógica", estilo: "teorico"},
+            { id: 67, texto: "Me resulta incómodo tener que planificar y prever las cosas", estilo: "activo"},
+            { id: 68, texto: "Creo que el fin justifica los medios en muchos casos", estilo: "pragmatico"},
+            { id: 69, texto: "Suelo reflexionar sobre los asuntos y problemas", estilo: "reflexivo"},
+            { id: 70, texto: "El trabajar a conciencia me llena de satisfacción y orgullo", estilo: "reflexivo"},
+            { id: 71, texto: "Ante los acontecimientos trato de descubrir los principios y teorías en que se basan", estilo: "teorico"},
+            { id: 72, texto: "Con tal de conseguir el objetivo que pretendo soy capaz de herir sentimientos ajenos", estilo: "pragmatico"},
+            { id: 73, texto: "No me importa hacer todo lo necesario para que sea efectivo mi trabajo", estilo: "pragmatico"},
+            { id: 74, texto: "Con frecuencia soy una de las personas que más anima las fiestas", estilo: "activo"},
+            { id: 75, texto: "Me aburro enseguida con el trabajo metódico y minucioso", estilo: "activo"},
+            { id: 76, texto: "La gente con frecuencia cree que soy poco sensible a sus sentimientos", estilo: "pragmatico"},
+            { id: 77, texto: "Suelo dejarme llevar por mis intuiciones", estilo: "activo"},
+            { id: 78, texto: "Si trabajo en grupo procuro que se siga un método y un orden", estilo: "teorico"},
+            { id: 79, texto: "Con frecuencia me interesa averiguar lo que piensa la gente", estilo: "reflexivo"},
+            { id: 80, texto: "Esquivo los temas subjetivos, ambiguos y poco claros ", estilo: "teorico"}
+        ],
+        analisis: {
+            activo: [
+                { min: 0, max: 6, mensaje: "Muy baja preferencia por el estilo activo." },
+                { min: 7, max: 8, mensaje: "Preferencia baja por el estilo activo." },
+                { min: 9, max: 12, mensaje: "Preferencia moderada por el estilo activo." },
+                { min: 13, max: 14, mensaje: "Alta preferencia por el estilo activo." },
+                { min: 15, max: 20, mensaje: "Muy alta preferencia por el estilo activo." }
+            ],
+            reflexivo: [
+                { min: 0, max: 10, mensaje: "Muy baja preferencia por el estilo reflexivo." },
+                { min: 11, max: 13, mensaje: "Preferencia baja por el estilo reflexivo." },
+                { min: 14, max: 17, mensaje: "Preferencia moderada por el estilo reflexivo." },
+                { min: 18, max: 19, mensaje: "Alta preferencia por el estilo reflexivo." },
+                { min: 20, max: 20, mensaje: "Muy alta preferencia por el estilo reflexivo." }
+            ],
+            teorico: [
+                { min: 0, max: 6, mensaje: "Muy baja preferencia por el estilo teórico." },
+                { min: 7, max: 9, mensaje: "Preferencia baja por el estilo teórico." },
+                { min: 10, max: 13, mensaje: "Preferencia moderada por el estilo teórico." },
+                { min: 14, max: 15, mensaje: "Alta preferencia por el estilo teórico." },
+                { min: 16, max: 20, mensaje: "Muy alta preferencia por el estilo teórico." }
+            ],
+            pragmatico: [
+                { min: 0, max: 8, mensaje: "Muy baja preferencia por el estilo pragmático." },
+                { min: 9, max: 10, mensaje: "Preferencia baja por el estilo pragmático." },
+                { min: 11, max: 13, mensaje: "Preferencia moderada por el estilo pragmático." },
+                { min: 14, max: 15, mensaje: "Alta preferencia por el estilo pragmático." },
+                { min: 16, max: 20, mensaje: "Muy alta preferencia por el estilo pragmático." }
+            ]
+        },
+        render: function(containerId) {
+            const container = $(containerId);
+            container.empty();
+            const table = $('<table class="table table-bordered table-striped table-hover align-middle"></table>');
+            const thead = $('<thead><tr><th>Pregunta</th><th class="text-center">+</th><th class="text-center">-</th></tr></thead>');
+            const tbody = $('<tbody></tbody>');
+            this.preguntas.forEach(p => {
+                const row = $('<tr></tr>');
+                row.append(`<td>${p.id}. ${p.texto}</td>`);
+                ['+', '-'].forEach(valor => {
+                const input = `
+                    <div class="form-check d-flex justify-content-center">
+                    <input class="form-check-input" type="radio" name="q-chaea-${p.id}" id="q-chaea-${p.id}_${valor}" value="${valor}" required>
+                    </div>`;
+                row.append(`<td>${input}</td>`);
+                });
+                tbody.append(row);
+            });
+            table.append(thead);
+            table.append(tbody);
+            container.append(table);
+        },
+        evaluar: function () {
+            const total = { activo: 0, reflexivo: 0, teorico: 0, pragmatico: 0 };
+            const incompletas = [];
+
+            this.preguntas.forEach(p => {
+                const val = $(`input[name=q-chaea-${p.id}]:checked`).val();
+                const estilo = p.estilo?.toLowerCase(); // CORRECTO
+                if (!val) {
+                    incompletas.push(p.id);
+                } else if (val === '+' && total.hasOwnProperty(estilo)) {
+                    total[estilo]++;
+                }
+            });
+
+            if (incompletas.length > 0) {
+                $('#modal-chaea-body').html(`
+                <div class="alert alert-warning">
+                    Debes responder todas las preguntas.<br>
+                    Preguntas faltantes: ${incompletas.join(', ')}
+                </div>`);
+                if (!window.modalChaea) {
+                window.modalChaea = new bootstrap.Modal(document.getElementById('modal-chaea-result'));
+                }
+                window.modalChaea.show();
+                return;
+            }
+
+            let resultado = `<div class="alert alert-info">Resultados del test CHAEA:</div>`;
+            resultado += `<ul class="list-group mb-2">`;
+            for (let estilo in total) {
+                resultado += `<li class="list-group-item d-flex justify-content-between">${estilo.toUpperCase()} <span class="badge bg-primary">${total[estilo]}</span></li>`;
+            }
+            resultado += `</ul>`;
+
+            for (let estilo in total) {
+                const reglas = this.analisis?.[estilo];
+                if (reglas) {
+                const regla = reglas.find(r => total[estilo] >= r.min && total[estilo] <= r.max);
+                if (regla) {
+                    resultado += `<p><strong>${estilo.toUpperCase()}</strong>: <span class="text-muted">${regla.mensaje}</span></p>`;
+                }
+                }
+            }
+
+            $('#modal-chaea-body').html(resultado);
+            if (!window.modalChaea) {
+                window.modalChaea = new bootstrap.Modal(document.getElementById('modal-chaea-result'));
+            }
+            window.modalChaea.show();
+        }
+    }
+};
+
+
+function exportarTXT() {
+    const nombre = $('#student-name').val().trim() || "[Sin nombre]";
+    const fecha = new Date().toLocaleString('es-CO');
+
+    let contenido = `Nombre: ${nombre}\nFecha de exportación: ${fecha}\n`;
+
+    // === VAK ===
+    contenido += `\n============== ${tests.vak.titulo} ==============\n`;
+    let totalVAK = { visual: 0, auditivo: 0, kinestesico: 0 };
+    tests.vak.preguntas.forEach(p => {
+        const val = $(`input[name=q${p.id}]:checked`).val();
+        contenido += `• ${p.texto}\n  ⇒ ${val || "[Sin responder]"}\n`;
+        if (val) totalVAK[val]++;
+    });
+    const estiloVAK = Object.keys(totalVAK).reduce((a, b) => totalVAK[a] > totalVAK[b] ? a : b);
+    const interpretacionVAK = tests.vak.analisis[estiloVAK].find(r => totalVAK[estiloVAK] >= r.min && totalVAK[estiloVAK] <= r.max);
+    contenido += `\nTotal:\n  Visual: ${totalVAK.visual}, Auditivo: ${totalVAK.auditivo}, Kinestésico: ${totalVAK.kinestesico}\n`;
+    contenido += `Estilo predominante: ${estiloVAK.toUpperCase()}\n${interpretacionVAK.mensaje}\n\n`;
+
+    // === Organización ===
+    contenido += `============== ${tests.organizacion.titulo} ==============\n`;
+    let totalORG = { secuencial: 0, holistico: 0 };
+    tests.organizacion.preguntas.forEach(p => {
+        const val = $(`input[name=q-org-${p.id}]:checked`).val();
+        contenido += `• ${p.texto}\n  ⇒ ${val || "[Sin responder]"}\n`;
+        if (val === 'si') totalORG[p.grupo]++;
+    });
+    for (let g in totalORG) {
+        const r = tests.organizacion.analisis[g].find(x => totalORG[g] >= x.min && totalORG[g] <= x.max);
+        contenido += `\n${g.charAt(0).toUpperCase() + g.slice(1)}: ${totalORG[g]} → ${r ? r.mensaje : ""}\n`;
+    }
+
+    // === CHAEA ===
+    contenido += `\n============== ${tests.chaea.titulo} ==============\n`;
+    let totalCHAEA = { activo: 0, reflexivo: 0, teorico: 0, pragmatico: 0 };
+    tests.chaea.preguntas.forEach(p => {
+        const val = $(`input[name=q-chaea-${p.id}]:checked`).val();
+        contenido += `• ${p.texto}\n  ⇒ ${val || "[Sin responder]"}\n`;
+        if (val === '+') totalCHAEA[p.estilo]++;
+    });
+    for (let estilo in totalCHAEA) {
+        const b = tests.chaea.analisis[estilo].find(r => totalCHAEA[estilo] >= r.min && totalCHAEA[estilo] <= r.max);
+        contenido += `\n${estilo.charAt(0).toUpperCase() + estilo.slice(1)}: ${totalCHAEA[estilo]} → ${b ? b.mensaje : ""}\n`;
+    }
+
+    const blob = new Blob([contenido], { type: "text/plain" });
+    const enlace = document.createElement("a");
+    enlace.href = URL.createObjectURL(blob);
+    enlace.download = `resultado_estudiante_${nombre.replace(/\\s+/g, '_')}.txt`;
+    enlace.click();
+}
+
+
+
+
+</script>
+</body>
+</html>
